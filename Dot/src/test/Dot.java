@@ -1,4 +1,4 @@
-package test;
+package dot;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -7,7 +7,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
-import test.Setting;
+import dot.Setting;
 
 
 public class Dot extends Map implements KeyListener, Runnable {
@@ -38,9 +38,8 @@ public class Dot extends Map implements KeyListener, Runnable {
 		}
 		
 		gs.setColor(Color.white);
-		//gs.drawImage(image, mx, my, wx, wy, null);
+
 		gs.fillRect(mx, my, wx, wy);
-		
 		
 		for(int i = 0; i < EnemyList.size(); i++) {
 			Enemy e = (Enemy)EnemyList.get(i);
@@ -67,7 +66,7 @@ public class Dot extends Map implements KeyListener, Runnable {
 		my = 300;
 		wx = 10;
 		wy = 10;
-		msleep = 30;
+		msleep = 10;
 		mstep = 5;
 		mtime=0;
 		Cnt=0;
@@ -169,7 +168,6 @@ public class Dot extends Map implements KeyListener, Runnable {
 					}
 					if(Ant>10) {
 						Ant=0;
-						//draw();
 					}
 					Cnt+=10;
 					//Ant+=10;
@@ -186,15 +184,17 @@ public class Dot extends Map implements KeyListener, Runnable {
 
 	public void enCreate() {
 		for(int i = 0; i < 10; i++) {
-			int rx = (int)(1000*Math.random());
-			int ry = 10;
+			//Enemy appear from top
+			EnemyList.add(new Enemy((int)(1000*Math.random()), 10));
 			
-			EnemyList.add(new Enemy(rx, ry));
-			//EnemyList.add(new Enemy(ry, rx));
-			//en = new Enemy(Setting.MAX_X-rx, Setting.MAX_Y-ry);
-			//EnemyList.add(en);
-			//en = new Enemy(Setting.MAX_Y-ry, Setting.MAX_X-rx);
-			//EnemyList.add(en);
+			//Enemy appear from bottom
+			EnemyList.add(new Enemy((int)(1000*Math.random()), Setting.MAX_Y-10));
+			 
+			//Enemy appear from left
+			EnemyList.add(new Enemy(10, (int)(1000*Math.random())));
+			
+			//Enemy appear from right
+			EnemyList.add(new Enemy(Setting.MAX_X-10, (int)(1000*Math.random())));
 		}
 	}
 
