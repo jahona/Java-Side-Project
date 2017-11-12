@@ -1,4 +1,4 @@
-package test;
+package dot;
 
 public class Setting {
 	public static final int Map_X = 1000;
