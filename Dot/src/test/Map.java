@@ -1,4 +1,4 @@
-package test;
+package dot;
 
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
-import test.Setting;
+import dot.Setting;
 
 public class Map extends JFrame{
 	/**
